@@ -43,10 +43,15 @@ export default function CampaignForm({ initialData }: CampaignFormProps) {
         e.preventDefault();
         setLoading(true);
         try {
+            const dataToSend = {
+                ...formData,
+                budget: parseFloat(formData.budget) || 0,
+                engagement_score: parseInt(String(formData.engagement_score)) || 0,
+            };
             if (initialData) {
-                await api.updateCampaign(initialData.id, formData);
+                await api.updateCampaign(initialData.id, dataToSend);
             } else {
-                await api.createCampaign(formData);
+                await api.createCampaign(dataToSend);
             }
             router.push('/campaigns');
             router.refresh();
