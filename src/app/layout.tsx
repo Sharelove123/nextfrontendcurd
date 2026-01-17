@@ -13,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="flex min-h-screen bg-background text-foreground antialiased font-sans">
+      <body className="flex min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased font-sans">
         <Sidebar />
         <main className="flex-1 overflow-y-auto p-8">
           {children}
