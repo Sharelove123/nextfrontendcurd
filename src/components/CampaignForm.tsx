@@ -64,10 +64,10 @@ export default function CampaignForm({ initialData }: CampaignFormProps) {
 
     return (
         <Card className="max-w-2xl mx-auto">
-            <CardHeader>
-                <CardTitle>{initialData ? 'Edit Campaign' : 'Create New Campaign'}</CardTitle>
+            <CardHeader className="p-4 md:p-6">
+                <CardTitle className="text-xl md:text-2xl">{initialData ? 'Edit Campaign' : 'Create New Campaign'}</CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="p-4 md:p-6 pt-0">
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="space-y-2">
                         <label className="text-sm font-medium">Campaign Title</label>
@@ -80,7 +80,8 @@ export default function CampaignForm({ initialData }: CampaignFormProps) {
                         />
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    {/* Stack on mobile, side by side on larger screens */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-2">
                             <label className="text-sm font-medium">Platform</label>
                             <select
@@ -112,7 +113,7 @@ export default function CampaignForm({ initialData }: CampaignFormProps) {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-2">
                             <label className="text-sm font-medium">Budget ($)</label>
                             <Input
@@ -140,8 +141,11 @@ export default function CampaignForm({ initialData }: CampaignFormProps) {
                         </div>
                     </div>
 
-                    <div className="flex justify-end pt-4">
-                        <Button type="submit" disabled={loading}>
+                    <div className="flex flex-col sm:flex-row justify-end gap-2 pt-4">
+                        <Button type="button" variant="outline" onClick={() => router.back()} className="w-full sm:w-auto">
+                            Cancel
+                        </Button>
+                        <Button type="submit" disabled={loading} className="w-full sm:w-auto">
                             {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                             {initialData ? 'Update Campaign' : 'Create Campaign'}
                         </Button>
