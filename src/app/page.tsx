@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { api } from '@/services/api';
-import StatsCard from '@/components/StatsCard'; // Ensure this path is correct
+import StatsCard from '@/components/StatsCard';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Activity, DollarSign, Users, BarChart2 } from 'lucide-react';
@@ -37,7 +37,7 @@ export default function Dashboard() {
     <div className="space-y-8">
       <div>
         <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
-        <p className="text-muted-foreground">Overview of your campaign performance.</p>
+        <p className="text-[var(--muted-foreground)]">Overview of your campaign performance.</p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -59,7 +59,7 @@ export default function Dashboard() {
                 <XAxis dataKey="platform" />
                 <YAxis />
                 <Tooltip />
-                <Bar dataKey="count" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="count" fill="var(--primary)" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </CardContent>
@@ -76,13 +76,13 @@ export default function Dashboard() {
                   <img
                     src={user.picture.thumbnail}
                     alt={user.name.first}
-                    className="h-10 w-10 rounded-full bg-secondary"
+                    className="h-10 w-10 rounded-full bg-[var(--secondary)]"
                   />
                   <div className="flex-1 overflow-hidden">
                     <p className="text-sm font-medium leading-none truncate">{user.name.first} {user.name.last}</p>
-                    <p className="text-sm text-muted-foreground truncate">{user.email}</p>
+                    <p className="text-sm text-[var(--muted-foreground)] truncate">{user.email}</p>
                   </div>
-                  <div className="text-xs text-muted-foreground">{user.location.country}</div>
+                  <div className="text-xs text-[var(--muted-foreground)]">{user.location.country}</div>
                 </div>
               ))}
             </div>

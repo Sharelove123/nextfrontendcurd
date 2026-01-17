@@ -36,7 +36,7 @@ export default function CampaignsPage() {
             <div className="flex items-center justify-between">
                 <div>
                     <h2 className="text-3xl font-bold tracking-tight">Campaigns</h2>
-                    <p className="text-muted-foreground">Manage your social media campaigns.</p>
+                    <p className="text-[var(--muted-foreground)]">Manage your social media campaigns.</p>
                 </div>
                 <Link href="/campaigns/new">
                     <Button>
@@ -47,7 +47,7 @@ export default function CampaignsPage() {
 
             <div className="rounded-md border">
                 <table className="w-full text-sm text-left">
-                    <thead className="bg-muted/50 text-muted-foreground font-medium border-b">
+                    <thead className="bg-[var(--muted)]/50 text-[var(--muted-foreground)] font-medium border-b">
                         <tr>
                             <th className="p-4">Title</th>
                             <th className="p-4">Platform</th>
@@ -59,14 +59,14 @@ export default function CampaignsPage() {
                     </thead>
                     <tbody>
                         {campaigns.map((campaign) => (
-                            <tr key={campaign.id} className="border-b transition-colors hover:bg-muted/50">
+                            <tr key={campaign.id} className="border-b transition-colors hover:bg-[var(--muted)]/50">
                                 <td className="p-4 font-medium">{campaign.title}</td>
                                 <td className="p-4 capitalize">{campaign.platform}</td>
                                 <td className="p-4">
                                     <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium capitalize
-                    ${campaign.status === 'active' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300' :
-                                            campaign.status === 'completed' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300' :
-                                                'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300'
+                    ${campaign.status === 'active' ? 'bg-green-100 text-green-800' :
+                                            campaign.status === 'completed' ? 'bg-blue-100 text-blue-800' :
+                                                'bg-yellow-100 text-yellow-800'
                                         }`}>
                                         {campaign.status}
                                     </span>
@@ -77,7 +77,7 @@ export default function CampaignsPage() {
                                     <Button variant="ghost" size="icon" onClick={() => router.push(`/campaigns/${campaign.id}/edit`)}>
                                         <Edit2 className="h-4 w-4" />
                                     </Button>
-                                    <Button variant="ghost" size="icon" className="text-destructive" onClick={() => handleDelete(campaign.id)}>
+                                    <Button variant="ghost" size="icon" className="text-[var(--destructive)]" onClick={() => handleDelete(campaign.id)}>
                                         <Trash2 className="h-4 w-4" />
                                     </Button>
                                 </td>
@@ -85,7 +85,7 @@ export default function CampaignsPage() {
                         ))}
                         {campaigns.length === 0 && (
                             <tr>
-                                <td colSpan={6} className="p-8 text-center text-muted-foreground">
+                                <td colSpan={6} className="p-8 text-center text-[var(--muted-foreground)]">
                                     No campaigns found. Create one to get started.
                                 </td>
                             </tr>

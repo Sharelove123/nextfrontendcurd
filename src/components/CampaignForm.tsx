@@ -82,7 +82,7 @@ export default function CampaignForm({ initialData }: CampaignFormProps) {
                                 name="platform"
                                 value={formData.platform}
                                 onChange={handleChange}
-                                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                                className="flex h-10 w-full rounded-md border border-[var(--input)] bg-[var(--background)] px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)]"
                             >
                                 <option value="instagram">Instagram</option>
                                 <option value="youtube">YouTube</option>
@@ -98,7 +98,7 @@ export default function CampaignForm({ initialData }: CampaignFormProps) {
                                 name="status"
                                 value={formData.status}
                                 onChange={handleChange}
-                                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                                className="flex h-10 w-full rounded-md border border-[var(--input)] bg-[var(--background)] px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)]"
                             >
                                 <option value="active">Active</option>
                                 <option value="paused">Paused</option>
